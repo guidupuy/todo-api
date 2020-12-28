@@ -1,4 +1,5 @@
 var express = require('express'),
+  cors = require('cors'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
+app.use(cors());
 
 var routes = require('./api/routes/todoListRoutes'); //importing route
 routes(app); //register the route
